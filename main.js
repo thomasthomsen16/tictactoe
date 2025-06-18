@@ -109,17 +109,16 @@ const DisplayController = (function () {
 document.getElementById("startGame").addEventListener("click", (e) => {
     const player1Input = document.getElementById("player1").value;
     const player2Input = document.getElementById("player2").value;
-    const player1 = Player(player1Input,"x");
-    const player2 = Player(player2Input,"o");
-    GameController.startGame(player1,player2);
+    const player1 = Player(player1Input, "x");
+    const player2 = Player(player2Input, "o");
+    GameController.startGame(player1, player2);
     DisplayController.renderBoard();
 })
 
 //Restart game
 document.getElementById("restartGame").addEventListener("click", (e) => {
-    player1Input = document.getElementById("player1").textContent="";
-    player2Input = document.getElementById("player2").textContent="";
+    player1Input = document.getElementById("player1").value = "";
+    player2Input = document.getElementById("player2").value = "";
     Gameboard.clearBoard();
     DisplayController.renderBoard();
 })
-
