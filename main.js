@@ -102,3 +102,12 @@ const DisplayController = (function () {
         }
     }
 })();
+
+document.getElementById("startGame").addEventListener("click", (e) => {
+    const player1Input = document.getElementById("player1").value;
+    const player2Input = document.getElementById("player2").value;
+    const player1 = Player(player1Input,"x");
+    const player2 = Player(player2Input,"o");
+    GameController.startGame(player1,player2);
+    DisplayController.renderBoard();
+})
