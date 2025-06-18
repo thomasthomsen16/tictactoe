@@ -1,3 +1,5 @@
+let messageText = document.getElementById("displayMessages");
+
 const Gameboard = (function () {
     // This is the private stuff
     let board = ["", "", "", "", "", "", "", "", ""];
@@ -36,12 +38,13 @@ const GameController = (function () {
                 DisplayController.renderBoard();
                 if (this.checkWin(players[currentPlayerIndex].marker)) {
                     gameActive = false;
-                    console.log(`${players[currentPlayerIndex].name} wins!`);
+                    messageText.textContent=`${players[currentPlayerIndex].name} wins!`;
                 } else if (this.checkTie()) {
                     gameActive = false;
-                    console.log("It is a tie");
+                    messageText.textContent="It is a tie";
                 } else {
                     this.switchPlayer();
+                    messageText.textContent=`${players[currentPlayerIndex].name}'s turn`
                 }
             }
         },
@@ -113,6 +116,7 @@ document.getElementById("startGame").addEventListener("click", (e) => {
     const player2 = Player(player2Input, "o");
     GameController.startGame(player1, player2);
     DisplayController.renderBoard();
+    messageText.textContent = `${player1Input} starts!`;
 })
 
 //Restart game
@@ -121,6 +125,7 @@ document.getElementById("restartGame").addEventListener("click", (e) => {
     player2Input = document.getElementById("player2").value = "";
     Gameboard.clearBoard();
     DisplayController.renderBoard();
+    messageText.textContent="Add players to start game"
 })
 
 DisplayController.init();
