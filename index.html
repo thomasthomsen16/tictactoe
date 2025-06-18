@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Tic tac toe game</title>
 </head>
+
 <body>
     <div id="board">
         <div class="cell" data-index="0"></div>
@@ -17,7 +19,18 @@
         <div class="cell" data-index="6"></div>
         <div class="cell" data-index="7"></div>
         <div class="cell" data-index="8"></div>
-      </div>
+    </div>
+
+    <div class="input">
+        <label for="player1">Player 1 (Max 12 characters):</label>
+
+        <input type="text" id="player1" name="player1" required minlength="4" maxlength="12" size="10" />
+        <label for="player2">Player 2 (Max 12 characters):</label>
+
+        <input type="text" id="player2" name="player2" required minlength="4" maxlength="12" size="10" />
+        <button id="startGame">Start game!</button>
+    </div>
     <script src="main.js"></script>
 </body>
+
 </html>
