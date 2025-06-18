@@ -122,3 +122,5 @@ document.getElementById("restartGame").addEventListener("click", (e) => {
     Gameboard.clearBoard();
     DisplayController.renderBoard();
 })
+
+DisplayController.init();
