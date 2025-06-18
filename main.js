@@ -33,6 +33,7 @@ const GameController = (function () {
         playTurn(index) {
             if (gameActive && Gameboard.getBoard()[index] === "") {
                 Gameboard.updateCell(index, players[currentPlayerIndex].marker);
+                DisplayController.renderBoard();
                 if (this.checkWin(players[currentPlayerIndex].marker)) {
                     gameActive = false;
                     console.log(`${players[currentPlayerIndex].name} wins!`);
@@ -103,6 +104,8 @@ const DisplayController = (function () {
     }
 })();
 
+
+//Start game
 document.getElementById("startGame").addEventListener("click", (e) => {
     const player1Input = document.getElementById("player1").value;
     const player2Input = document.getElementById("player2").value;
@@ -111,3 +114,12 @@ document.getElementById("startGame").addEventListener("click", (e) => {
     GameController.startGame(player1,player2);
     DisplayController.renderBoard();
 })
+
+//Restart game
+document.getElementById("restartGame").addEventListener("click", (e) => {
+    player1Input = document.getElementById("player1").textContent="";
+    player2Input = document.getElementById("player2").textContent="";
+    Gameboard.clearBoard();
+    DisplayController.renderBoard();
+})
+
